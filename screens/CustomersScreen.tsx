@@ -23,8 +23,8 @@ const CustomersScreen = () => {
      }, [])
      return (
           <ScrollView style={{ backgroundColor: '#59C1CC' }} >
-               <Image source={require('../assets/home-header.jpeg')}
-                    containerStyle={tw`w-full h-64`}
+               <Image source={require('../assets/home-header.jpg')}
+                    containerStyle={tw`w-full h-58`}
                     style={tw`w-full`}
                />
                <Input
