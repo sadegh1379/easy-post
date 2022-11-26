@@ -33,6 +33,7 @@ const CustomersScreen = () => {
                     onChangeText={setSearch}
                     value={search}
                />
+               <Text>sadegh</Text>
           </ScrollView>
      )
 }
