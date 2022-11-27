@@ -7,6 +7,8 @@ import { RootStackParamsList } from '../navigator/RootNavigator';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Image, Input } from '@rneui/themed';
 import tw from 'twrnc';
+import { useQuery } from '@apollo/client';
+import { GET_CUSTOMERS } from '../graphql/queries';
 
 export type CustomerScreenNavigationProp = CompositeNavigationProp<
      BottomTabNavigationProp<tabStackParamsList, 'Customers'>,
@@ -16,6 +18,11 @@ export type CustomerScreenNavigationProp = CompositeNavigationProp<
 const CustomersScreen = () => {
      const navigation = useNavigation<CustomerScreenNavigationProp>()
      const [search, setSearch] = useState<string>('')
+     const { data, error, loading } = useQuery(GET_CUSTOMERS);
+     console.log('loading', loading)
+     console.log('data:', data);
+     console.log('error:', error);
+
      useLayoutEffect(() => {
           navigation.setOptions({
                headerShown: false,
@@ -33,7 +40,6 @@ const CustomersScreen = () => {
                     onChangeText={setSearch}
                     value={search}
                />
-               <Text>sadegh</Text>
           </ScrollView>
      )
 }
